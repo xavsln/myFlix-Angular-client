@@ -18,7 +18,7 @@ const apiUrl = 'https://themyflixapp.herokuapp.com/';
 const token = localStorage.getItem('token');
 
 // Access username from local storage
-const username = localStorage.getItem('user');
+const user = localStorage.getItem('user');
 
 @Injectable({
   providedIn: 'root',
@@ -115,13 +115,19 @@ export class FetchApiDataService {
   // Making the api call for a User endpoint
   // ---------------------------------------
   getUser(): Observable<any> {
+    console.log(`getUser was called, for user: ${user}`);
     return this.http
-      .get(apiUrl + 'users/${username}', {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
+      .get(`${apiUrl}users/${user}`, {
+        headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
+    // return this.http
+    //   .get(apiUrl + 'users/${user}', {
+    //     headers: new HttpHeaders({
+    //       Authorization: 'Bearer ' + token,
+    //     }),
+    //   })
+    //   .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
   // ---------------------------------------------------------
@@ -129,7 +135,7 @@ export class FetchApiDataService {
   // ---------------------------------------------------------
   addMovieToFav(movieId: any): Observable<any> {
     return this.http
-      .get(apiUrl + 'users/${username}/movies/${movieId}', {
+      .get(apiUrl + 'users/${user}/movies/${movieId}', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -159,10 +165,8 @@ export class FetchApiDataService {
     const userId = localStorage.getItem('userId');
 
     return this.http
-      .delete(apiUrl + 'users/${userId}', {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
+      .delete(`${apiUrl}users/${userId}`, {
+        headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
@@ -172,7 +176,7 @@ export class FetchApiDataService {
   // --------------------------------------------------------------
   deleteMovieFromFav(movieId: any): Observable<any> {
     return this.http
-      .delete(apiUrl + 'users/${username}/movies/${movieId}', {
+      .delete(apiUrl + 'users/${user}/movies/${movieId}', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),

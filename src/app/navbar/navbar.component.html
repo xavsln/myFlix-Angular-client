@@ -1,0 +1,30 @@
+<!-- <div class="nav-bar">
+  <div class="logo-menu">
+    <p class="logo-name" (click)="goToMovies()">MyFlix</p>
+  </div>
+
+  <div class="button-menu">
+    <button mat-button (click)="goToMovies()">Movies</button>
+
+    <button mat-button (click)="goToProfile()">Profile</button>
+
+    <button mat-button class="logout-button" (click)="logOut()">
+      <mat-icon>logout</mat-icon> Logout
+    </button>
+  </div>
+</div> -->
+
+<mat-toolbar class="title-toolbar nav-bar">
+  <mat-toolbar-row class="logo-menu">
+    <span class="title-center logo-name" (click)="goToMovies()">MyFlix</span>
+    <span class="example-spacer"></span>
+
+    <button mat-button (click)="goToMovies()">Movies</button>
+
+    <button mat-button (click)="goToProfile()">Profile</button>
+
+    <button mat-button class="logout-button" (click)="logOut()">
+      <mat-icon>logout</mat-icon> Logout
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

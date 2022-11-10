@@ -38,6 +38,7 @@ export class UserLoginFormComponent implements OnInit {
         console.log(result);
         localStorage.setItem('token', result.token);
         localStorage.setItem('user', result.user.Username);
+        localStorage.setItem('userId', result.user._id);
 
         this.snackBar.open('User Login successful!', 'OK', {
           duration: 2000,

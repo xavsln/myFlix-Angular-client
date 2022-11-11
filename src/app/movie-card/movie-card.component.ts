@@ -16,6 +16,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MovieCardComponent {
   movies: any[] = [];
+  favoriteMovies: any[] = [];
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog
@@ -24,6 +26,7 @@ export class MovieCardComponent {
   // Called when Angular is done creating the component
   ngOnInit(): void {
     this.getMovies();
+    this.getFavoriteMovies();
   }
 
   getMovies(): void {
@@ -31,6 +34,15 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  // Get favorite movies from api call and sets the favorite movies variable to return JSON file
+  getFavoriteMovies(): void {
+    this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
+      console.log("User's list of favorite movies: ", resp.FavoriteMovies);
+      this.favoriteMovies = resp.FavoriteMovies;
+      return this.favoriteMovies;
     });
   }
 
@@ -62,6 +74,27 @@ export class MovieCardComponent {
         Description: description,
       },
       width: '500px',
+    });
+  }
+
+  // Check whether a Movie is in the user's list of favorite movies
+  isFav(id: string): boolean {
+    return this.favoriteMovies.includes(id);
+  }
+
+  addToFavoriteMovies(id: string): void {
+    console.log(id);
+    this.fetchApiData.addMovieToFav(id).subscribe((result) => {
+      console.log(result);
+      this.ngOnInit();
+    });
+  }
+
+  removeFromFavoriteMovies(id: string): void {
+    console.log(id);
+    this.fetchApiData.deleteMovieFromFav(id).subscribe((result) => {
+      console.log(result);
+      this.ngOnInit();
     });
   }
 }

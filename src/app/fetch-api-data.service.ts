@@ -135,11 +135,13 @@ export class FetchApiDataService {
   // ---------------------------------------------------------
   addMovieToFav(movieId: any): Observable<any> {
     return this.http
-      .get(apiUrl + 'users/${user}/movies/${movieId}', {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
+      .post(
+        `${apiUrl}users/${user}/movies/${movieId}`,
+        { FavoriteMovie: movieId },
+        {
+          headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
+        }
+      )
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
@@ -174,10 +176,24 @@ export class FetchApiDataService {
   // --------------------------------------------------------------
   deleteMovieFromFav(movieId: any): Observable<any> {
     return this.http
-      .delete(apiUrl + 'users/${user}/movies/${movieId}', {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
+      .delete(
+        `${apiUrl}users/${user}/movies/${movieId}`,
+
+        {
+          headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
+        }
+      )
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
+  // ----------------------------------------------------------
+  // Making the api call for the Movies from Favorites endpoint
+  // ----------------------------------------------------------
+  getFavoriteMovies(): Observable<any> {
+    // No dedicated end point for Favorite Movies but FavoriteMovies is one of the User's properties therefore we fetch the data from the User and then access FavoriteMovies later on
+    return this.http
+      .get(`${apiUrl}users/${user}`, {
+        headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }

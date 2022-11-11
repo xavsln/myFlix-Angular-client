@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { MatDialog } from '@angular/material/dialog';
+
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -16,7 +20,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public router: Router,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -44,5 +49,11 @@ export class ProfileComponent implements OnInit {
         localStorage.clear();
       });
     }
+  }
+
+  openEditProfileDialog(): void {
+    this.dialog.open(EditProfileComponent, {
+      width: '500px',
+    });
   }
 }

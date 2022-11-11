@@ -20,7 +20,13 @@
     </mat-card-header>
 
     <mat-card-actions>
-      <button mat-raised-button color="primary">Edit</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openEditProfileDialog()"
+      >
+        Edit
+      </button>
       <button mat-raised-button color="warn" (click)="deleteProfile()">
         Delete
       </button>

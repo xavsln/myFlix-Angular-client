@@ -41,7 +41,7 @@ export class MovieCardComponent {
         Name: name,
         Description: description,
       },
-      width: '490px',
+      width: '500px',
     });
   }
 
@@ -51,7 +51,7 @@ export class MovieCardComponent {
         Name: name,
         Bio: bio,
       },
-      width: '490px',
+      width: '500px',
     });
   }
 
@@ -61,7 +61,7 @@ export class MovieCardComponent {
         Title: title,
         Description: description,
       },
-      width: '490px',
+      width: '500px',
     });
   }
 }

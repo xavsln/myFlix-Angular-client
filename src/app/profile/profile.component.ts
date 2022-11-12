@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.getFavoriteMovies();
-    this.getFavoriteMoviesData();
+    // this.getFavoriteMoviesData();
   }
 
   getUser(): void {
@@ -71,6 +71,7 @@ export class ProfileComponent implements OnInit {
     this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
       console.log("User's list of favorite movies: ", resp.FavoriteMovies);
       this.favoriteMovies = resp.FavoriteMovies;
+      this.getFavoriteMoviesData();
       return this.favoriteMovies;
     });
   }

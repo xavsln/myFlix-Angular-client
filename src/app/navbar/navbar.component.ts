@@ -23,4 +23,11 @@ export class NavbarComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['welcome']);
   }
+
+  // Check whether a User is logged in
+  isLoggedIn(): boolean {
+    const connectedUser = localStorage.getItem('user') !== null;
+    // console.log(connectedUser);
+    return connectedUser;
+  }
 }

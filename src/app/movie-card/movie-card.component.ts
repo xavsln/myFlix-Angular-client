@@ -17,6 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class MovieCardComponent {
   movies: any[] = [];
   favoriteMovies: any[] = [];
+  // token: any = localStorage.getItem('token');
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -30,6 +31,7 @@ export class MovieCardComponent {
   }
 
   getMovies(): void {
+    // console.log('Token from getMovies: ', this.token);
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
       console.log(this.movies);

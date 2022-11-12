@@ -91,14 +91,6 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  // checkFav(): void {
-  //   console.log('Map the favorite movies: ', this.movies);
-  // }
-
-  // testFunction(m: any): void {
-  //   return m;
-  // }
-
   addToFavoriteMovies(id: string): void {
     console.log(id);
     this.fetchApiData.addMovieToFav(id).subscribe((result) => {

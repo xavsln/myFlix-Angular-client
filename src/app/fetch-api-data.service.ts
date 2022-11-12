@@ -63,11 +63,16 @@ export class FetchApiDataService {
   // Making the api call for the All Movies endpoint
   // -----------------------------------------------
   getAllMovies(): Observable<any> {
+    // return this.http
+    //   .get(apiUrl + 'movies', {
+    //     headers: new HttpHeaders({
+    //       Authorization: 'Bearer ' + token,
+    //     }),
+    //   })
+    //   .pipe(map(this.extractResponseData), catchError(this.handleError));
     return this.http
-      .get(apiUrl + 'movies', {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
+      .get(`${apiUrl}movies`, {
+        headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
@@ -77,12 +82,17 @@ export class FetchApiDataService {
   // -----------------------------------------------
   getSingleMovie(title: any): Observable<any> {
     return this.http
-      .get(apiUrl + 'movies/${title}', {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
+      .get(`${apiUrl}movies/${title}`, {
+        headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
+    // return this.http
+    //   .get(apiUrl + 'movies/${title}', {
+    //     headers: new HttpHeaders({
+    //       Authorization: 'Bearer ' + token,
+    //     }),
+    //   })
+    //   .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
   // -------------------------------------------------

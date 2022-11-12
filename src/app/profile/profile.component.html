@@ -6,12 +6,26 @@
         <mat-card-title>Your Profile information:</mat-card-title>
       </mat-card-header>
 
+      <mat-card *ngIf="user._id.length === 0">
+        <mat-card-header>
+          <mat-card-title>Loading please wait...</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+
       <!-- User profile information display -->
       <mat-card-content class="user-profile-card-content">
         <p><b>Id: </b> {{ user._id }}</p>
         <p><b>Name: </b> {{ user.Username }}</p>
         <p><b>Email: </b> {{ user.Email }}</p>
-        <p><b>Birthday: </b>{{ user.Birthday.slice(0, 10) }}</p>
+        <!-- <p><b>Birthday: </b>{{ user.Birthday.slice(0, 10) }}</p> -->
+        <p>
+          <b>Birthday: </b
+          >{{
+            user.Birthday !== null
+              ? user.Birthday.slice(0, 10)
+              : "Not available"
+          }}
+        </p>
         <br />
       </mat-card-content>
 

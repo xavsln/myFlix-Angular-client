@@ -1,4 +1,10 @@
 <div class="component-container">
+  <mat-card *ngIf="movies.length === 0">
+    <mat-card-header>
+      <mat-card-title>Loading please wait...</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
   <mat-card *ngFor="let movie of movies">
     <mat-card-header>
       <mat-card-title>{{ movie.Title }}</mat-card-title>

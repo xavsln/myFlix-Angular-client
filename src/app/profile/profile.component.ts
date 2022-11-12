@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.getFavoriteMovies();
-    // this.getFavoriteMoviesData();
+    this.getFavoriteMoviesData();
   }
 
   getUser(): void {

@@ -42,9 +42,12 @@ export class FetchApiDataService {
   // Making the api call for the user login endpoint
   // -----------------------------------------------
   public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    console.log('User details should show here', userDetails);
+    // return this.http
+    //   .post(apiUrl + 'login', userDetails)
+    //   .pipe(catchError(this.handleError));
     return this.http
-      .post(apiUrl + 'login', userDetails)
+      .post(`${apiUrl}login`, userDetails)
       .pipe(catchError(this.handleError));
   }
 
@@ -115,6 +118,8 @@ export class FetchApiDataService {
   // Making the api call for a User endpoint
   // ---------------------------------------
   getUser(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
     console.log(`getUser was called, for user: ${user}`);
     return this.http
       .get(`${apiUrl}users/${user}`, {
@@ -127,6 +132,8 @@ export class FetchApiDataService {
   // Making the api call for add a Movie to Favorites endpoint
   // ---------------------------------------------------------
   addMovieToFav(movieId: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
     return this.http
       .post(
         `${apiUrl}users/${user}/movies/${movieId}`,
@@ -168,6 +175,8 @@ export class FetchApiDataService {
   // Making the api call for delete a Movie from Favorites endpoint
   // --------------------------------------------------------------
   deleteMovieFromFav(movieId: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
     return this.http
       .delete(
         `${apiUrl}users/${user}/movies/${movieId}`,
@@ -184,6 +193,8 @@ export class FetchApiDataService {
   // ----------------------------------------------------------
   getFavoriteMovies(): Observable<any> {
     // No dedicated end point for Favorite Movies but FavoriteMovies is one of the User's properties therefore we fetch the data from the User and then access FavoriteMovies later on
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
     return this.http
       .get(`${apiUrl}users/${user}`, {
         headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),

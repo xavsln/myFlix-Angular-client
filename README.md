@@ -6,7 +6,7 @@
 
 This App is the **Client side** of the **myFlix API**. (see below for details regarding the REST API and database)
 
-It makes use of Angular Framework.
+It makes use of Angular 14 Framework.
 
 ---
 

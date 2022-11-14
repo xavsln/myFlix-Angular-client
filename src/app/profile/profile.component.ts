@@ -38,6 +38,11 @@ export class ProfileComponent implements OnInit {
     this.getFavoriteMoviesData();
   }
 
+  /**
+   * Gets user data from api call and sets the user variable to returned JSON file
+   * @returns object holding user information
+   * @function getUser
+   */
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -46,6 +51,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Deletes user data from api call and removes data from local storage
+   * @function deleteUser
+   */
   deleteProfile(): void {
     if (confirm('Are you sure you want to delete your account?')) {
       this.router.navigate(['welcome']).then(() => {
@@ -59,14 +68,19 @@ export class ProfileComponent implements OnInit {
       });
     }
   }
-
+  /**
+   * Opens the selected user dialog from EditProfileComponent to edit user's details
+   */
   openEditProfileDialog(): void {
     this.dialog.open(EditProfileComponent, {
       width: '500px',
     });
   }
 
-  // Get favorite movies from api call and sets the favorite movies variable to return JSON file
+  /**
+   * Gets favorite movies from api call and sets the favorite movies variable to return JSON file
+   * @function getFavoriteMovies
+   */
   getFavoriteMovies(): void {
     this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
       console.log("User's list of favorite movies: ", resp.FavoriteMovies);
@@ -76,11 +90,19 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  // Check whether a Movie is in the user's list of favorite movies
+  /**
+   * Check whether a Movie is in the user's list of favorite movies
+   * @param id
+   * @returns true in case the movie is included in the list of favorite movies otherwise it returns false
+   */
   isFav(id: string): boolean {
     return this.favoriteMovies.includes(id);
   }
 
+  /**
+   * Gets complete data (title, director, etc...) for the favorite movies listed in the user's list of favorite movies
+   * @returns an array of movies objects
+   */
   getFavoriteMoviesData(): void {
     // This function filters the movies from the movies' list that correspond to the movieId of favorites
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -92,6 +114,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Adds the selected movie to the user's list of favorite movies using an API call
+   * @param id
+   * @function addMovieToFav
+   */
   addToFavoriteMovies(id: string): void {
     console.log(id);
     this.fetchApiData.addMovieToFav(id).subscribe((result) => {
@@ -100,6 +127,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Removes the selected movie from the user's list of favorite movies using an API call
+   * @param id
+   * @function deleteMovieFromFav
+   */
   removeFromFavoriteMovies(id: string): void {
     console.log(id);
     this.fetchApiData.deleteMovieFromFav(id).subscribe((result) => {
@@ -108,6 +140,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens the selected movie genre dialog from GenreComponent to display movie's genre details
+   * @param name
+   * @param description
+   */
   openGenreDialog(name: string, description: string): void {
     // console.log('This should open the genre dialog');
     this.dialog.open(GenreComponent, {
@@ -119,6 +156,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens the selected movie director dialog from DirectorComponent to display movie's director details
+   * @param name
+   * @param bio
+   */
   openDirectorDialog(name: string, bio: string): void {
     this.dialog.open(DirectorComponent, {
       data: {
@@ -129,6 +171,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens the selected movie synopsis dialog from SynopsisComponent to display movie's synopsis details
+   * @param title
+   * @param description
+   */
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisComponent, {
       data: {

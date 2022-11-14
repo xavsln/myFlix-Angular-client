@@ -1,27 +1,57 @@
-# MyFlixAngularClient
+![My Image](img/app-screenshot.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+---
 
-## Development server
+# 1. Project description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This App is the **Client side** of the **myFlix API**. (see below for details regarding the REST API and database)
 
-## Code scaffolding
+It makes use of Angular Framework.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+# 2. User Stories
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- User will be able to **access information on movies, directors, and genres** so that he
+  can learn more about movies he watched or is interested in.
 
-## Running unit tests
+- User will be able to **create a profile so he can save data about his favorite movies**.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+# 3. How to get the project running
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This App can be executed from the terminal usng the following command: **`npm start`**.
+Then open url: http://localhost:4200/
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# 4. Project main dependencies (e.g., JavaScript version, ESLint rules)
+
+- "@angular/animations": "^14.2.0",
+- "@angular/cdk": "^14.2.6",
+- "@angular/common": "^14.2.0",
+- "@angular/compiler": "^14.2.0",
+- "@angular/core": "^14.2.0",
+- "@angular/forms": "^14.2.0",
+- "@angular/material": "^14.2.6",
+- "@angular/platform-browser": "^14.2.0",
+- "@angular/platform-browser-dynamic": "^14.2.0",
+- "@angular/router": "^14.2.0",
+- "rxjs": "~7.5.0",
+- "tslib": "^2.3.0",
+- "zone.js": "~0.11.4"
+
+---
+
+# 5. API used by the project
+
+- myFlix API: https://github.com/xavsln/myFlix_v20220621-1
+
+---
+
+# 6. Online version
+
+- myFlix Angular Client online: https://xavsln.github.io/myFlix-Angular-client/welcome
+
+---

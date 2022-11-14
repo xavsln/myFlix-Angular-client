@@ -31,7 +31,8 @@ export class FetchApiDataService {
   // ------------------------------------------------------
   // Making the api call to the user registration endpoint
   // ------------------------------------------------------
-  /** Makes an api call to the user registration endpoint in order to register a new user
+  /**
+   * Makes an api call to the user registration endpoint in order to register a new user
    * @returns a new user object in json format
    * @function userRegistration
    */
@@ -45,7 +46,8 @@ export class FetchApiDataService {
   // -----------------------------------------------
   // Making the api call for the user login endpoint
   // -----------------------------------------------
-  /** Makes an api call to the user login endpoint in order to login a user
+  /**
+   * Makes an api call to the user login endpoint in order to login a user
    * @param {any} userDetails
    * @returns a user object in json format
    * @function userLogin
@@ -71,7 +73,8 @@ export class FetchApiDataService {
   // -----------------------------------------------
   // Making the api call for the All Movies endpoint
   // -----------------------------------------------
-  /** Gets all movies data from the API
+  /**
+   * Gets all movies data from the API
    * @returns An array of movies objects
    * @function getAllMovies
    */
@@ -88,7 +91,8 @@ export class FetchApiDataService {
   // -----------------------------------------------
   // Making the api call for a Single Movie endpoint
   // -----------------------------------------------
-  /** Gets a single movie data from the API
+  /**
+   * Gets a single movie data from the API
    * @params {string} title
    * @returns A movie object
    * @function getSingleMovie
@@ -106,7 +110,8 @@ export class FetchApiDataService {
   // -------------------------------------------------
   // Making the api call for a Movie Director endpoint
   // -------------------------------------------------
-  /** Makes a call to API endpoint to get information about a Movie Director
+  /**
+   * Makes a call to API endpoint to get information about a Movie Director
    * @param {string} name
    * @returns an object in json format
    * @function getDirector
@@ -124,7 +129,8 @@ export class FetchApiDataService {
   // ----------------------------------------------
   // Making the api call for a Movie Genre endpoint
   // ----------------------------------------------
-  /** Makes a call to API endpoint to get information about a Movie Genre
+  /**
+   * Makes a call to API endpoint to get information about a Movie Genre
    * @param {string} name
    * @returns an object in json format
    * @function getGenre
@@ -142,7 +148,8 @@ export class FetchApiDataService {
   // ---------------------------------------
   // Making the api call for a User endpoint
   // ---------------------------------------
-  /** Makes a call to API endpoint to get information about a User
+  /**
+   * Makes a call to API endpoint to get information about a User
    * @returns an object in json format
    * @function getUser
    */
@@ -160,7 +167,8 @@ export class FetchApiDataService {
   // ---------------------------------------------------------
   // Making the api call for add a Movie to Favorites endpoint
   // ---------------------------------------------------------
-  /** Makes a call to API endpoint to add a selected movie to the user's list of favorite movies
+  /**
+   * Makes a call to API endpoint to add a selected movie to the user's list of favorite movies
    * @returns an object in json format
    * @function addMovieToFav
    */
@@ -181,7 +189,8 @@ export class FetchApiDataService {
   // ------------------------------------------
   // Making the api call for edit User endpoint
   // ------------------------------------------
-  /** Makes a call to API endpoint to edit information about a User
+  /**
+   * Makes a call to API endpoint to edit information about a User
    * @returns an object in json format
    * @function editUser
    */
@@ -198,7 +207,8 @@ export class FetchApiDataService {
   // --------------------------------------------
   // Making the api call for delete User endpoint
   // --------------------------------------------
-  /** Makes a call to API endpoint to delete a User
+  /**
+   * Makes a call to API endpoint to delete a User
    * @returns an object in json format
    * @function deleteUser
    */
@@ -215,7 +225,8 @@ export class FetchApiDataService {
   // --------------------------------------------------------------
   // Making the api call for delete a Movie from Favorites endpoint
   // --------------------------------------------------------------
-  /** Makes a call to API endpoint to delete a selected movie from the user's list of favorite movies
+  /**
+   * Makes a call to API endpoint to delete a selected movie from the user's list of favorite movies
    * @returns an object in json format
    * @function deleteMovieFromFav
    */
@@ -236,7 +247,8 @@ export class FetchApiDataService {
   // ----------------------------------------------------------
   // Making the api call for the Movies from Favorites endpoint
   // ----------------------------------------------------------
-  /** Makes a call to API endpoint to get the list of movies
+  /**
+   * Makes a call to API endpoint to get the list of movies
    * @returns An array of objects in json format
    * @function getFavoriteMovies
    */
